@@ -7,8 +7,15 @@
 
 import SwiftUI
 import CoreData
-
+import PhotosUI
+enum DataType: String, CaseIterable, Identifiable {
+    case image, video, document
+    var id: Self {self}
+}
 struct ContentView: View {
+    @State private var selectedDataType: DataType = .image
+    @State var selectedItems: [PhotosPickerItem] = []
+    @State private var filePresented: Bool = false
     @Environment(\.managedObjectContext) private var viewContext
 
     @FetchRequest(
@@ -17,29 +24,36 @@ struct ContentView: View {
     private var items: FetchedResults<Item>
 
     var body: some View {
-        NavigationView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-                    } label: {
-                        Text(item.timestamp!, formatter: itemFormatter)
+    
+            List{
+                Picker("Content", selection: $selectedDataType) {
+                    Text("Image").tag(DataType.image)
+                    Text("Video").tag(DataType.video)
+                    Text("Document").tag(DataType.document)
+                }
+                PhotosPicker(selection: $selectedItems) {
+                    Text("Import from Camera")
+                }
+                .fileImporter(isPresented: $filePresented, allowedContentTypes: [UTType.video, UTType.image, UTType.application, UTType.calendarEvent, UTType.commaSeparatedText, UTType.folder]) { result in
+                    switch result {
+                    case .success(let data):
+                        print(data)
+                    case .failure(let error):
+                        print("An error has occured \(error)")
                     }
                 }
-                .onDelete(perform: deleteItems)
-            }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
+                Button("Import File") {
+                    filePresented = true
                 }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
+                Button("Transfer Content") {
+                    print("transfer \(selectedDataType)")
                 }
-            }
-            Text("Select an item")
+                Button("Retrieve Content") {
+                    print("retrieve \(selectedDataType)")
+                }
+            DisplayerView()
         }
+        
     }
 
     private func addItem() {
