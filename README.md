@@ -1,2 +1,2 @@
 # AirPlane
-AirPlane is intended to optimize storage for iOS users by turning any Apple device into a hub for cloud storage. Users are able to transfer and receive data from their current device(s) to other iOS devices. 
+Common cloud storage services like Google Drive and iCloud require a subscription fee if the user requires more storage than their free plans provide (15GB and 5GB, respectively). AirPlane is an iOS app designed to turn iPhones into cloud storage devices by providing an interface to interact with an iPhone's local storage from another iPhone. Users are able to view, transfer, and delete files from either device. 
