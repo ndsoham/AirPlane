@@ -15,6 +15,12 @@ enum DataType: String, CaseIterable, Identifiable {
 }
 
 struct ContentView: View {
+    @State private var selectedTab: Tab = .home
+    
+    enum Tab {
+        case home
+    }
+    
     @State private var selectedDataType: DataType = .image
     @State var selectedItems: [PhotosPickerItem] = []
     @State private var filePresented: Bool = false
@@ -26,31 +32,16 @@ struct ContentView: View {
     private var items: FetchedResults<Item>
     
     var body: some View {
-        VStack {
-            List {
-                PhotosPicker(selection: $selectedItems) {
-                    Text("Import from Camera")
-                }
-                .fileImporter(isPresented: $filePresented, allowedContentTypes: [UTType.video, UTType.image, UTType.application, UTType.calendarEvent, UTType.commaSeparatedText, UTType.folder]) { result in
-                    switch result {
-                    case .success(let data):
-                        print(data)
-                    case .failure(let error):
-                        print("An error has occured \(error)")
-                    }
-                }
-                Button("Import File") {
-                    filePresented = true
-                }
-                Button("Transfer Content") {
-                    print("transfer \(selectedDataType)")
-                }
-                Button("Retrieve Content") {
-                    print("retrieve \(selectedDataType)")
-                }
+        TabView(selection: $selectedTab) {
+            NavigationView {
+                DeviceListView()
             }
+            .tabItem {
+                Image(systemName: "iphone")
+                Text("Devices")
+            }
+            .tag(Tab.home)
         }
-        
     }
     
     private func addItem() {
