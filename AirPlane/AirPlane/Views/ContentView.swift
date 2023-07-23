@@ -7,46 +7,57 @@
 
 import SwiftUI
 import CoreData
+import PhotosUI
+
+enum DataType: String, CaseIterable, Identifiable {
+    case image, video, document
+    var id: Self {self}
+}
 
 struct ContentView: View {
+    @State private var selectedDataType: DataType = .image
+    @State var selectedItems: [PhotosPickerItem] = []
+    @State private var filePresented: Bool = false
     @Environment(\.managedObjectContext) private var viewContext
-
+    
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
         animation: .default)
     private var items: FetchedResults<Item>
-
+    
     var body: some View {
-        NavigationView {
+        VStack {
             List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-                    } label: {
-                        Text(item.timestamp!, formatter: itemFormatter)
+                PhotosPicker(selection: $selectedItems) {
+                    Text("Import from Camera")
+                }
+                .fileImporter(isPresented: $filePresented, allowedContentTypes: [UTType.video, UTType.image, UTType.application, UTType.calendarEvent, UTType.commaSeparatedText, UTType.folder]) { result in
+                    switch result {
+                    case .success(let data):
+                        print(data)
+                    case .failure(let error):
+                        print("An error has occured \(error)")
                     }
                 }
-                .onDelete(perform: deleteItems)
-            }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
+                Button("Import File") {
+                    filePresented = true
                 }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
+                Button("Transfer Content") {
+                    print("transfer \(selectedDataType)")
+                }
+                Button("Retrieve Content") {
+                    print("retrieve \(selectedDataType)")
                 }
             }
-            Text("Select an item")
         }
+        
     }
-
+    
     private func addItem() {
         withAnimation {
             let newItem = Item(context: viewContext)
             newItem.timestamp = Date()
-
+            
             do {
                 try viewContext.save()
             } catch {
@@ -57,11 +68,11 @@ struct ContentView: View {
             }
         }
     }
-
+    
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
             offsets.map { items[$0] }.forEach(viewContext.delete)
-
+            
             do {
                 try viewContext.save()
             } catch {
