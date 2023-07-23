@@ -15,16 +15,26 @@ enum DataType: String, CaseIterable, Identifiable {
 struct ContentView: View {
     @State private var selectedDataType: DataType = .image
     @State var selectedItems: [PhotosPickerItem] = []
+    @State var imageSelection: PhotosPickerItem? = nil {
+        didSet {
+            if let imageSelection {
+                
+            } else {
+                
+            }
+        }
+    }
     @State private var filePresented: Bool = false
+    @State private var selectedFile: PDF?
+    @State private var selectedImage: Image?
     @Environment(\.managedObjectContext) private var viewContext
 
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
         animation: .default)
     private var items: FetchedResults<Item>
-
-    var body: some View {
     
+    var body: some View {
             List{
                 Picker("Content", selection: $selectedDataType) {
                     Text("Image").tag(DataType.image)
@@ -32,30 +42,57 @@ struct ContentView: View {
                     Text("Document").tag(DataType.document)
                 }
                 PhotosPicker(selection: $selectedItems) {
-                    Text("Import from Camera")
+                    if let first = selectedItems.first {
+                       
+                    }
                 }
-                .fileImporter(isPresented: $filePresented, allowedContentTypes: [UTType.video, UTType.image, UTType.application, UTType.calendarEvent, UTType.commaSeparatedText, UTType.folder]) { result in
+                .fileImporter(isPresented: $filePresented, allowedContentTypes: [UTType.video, UTType.image, UTType.application, UTType.calendarEvent, UTType.commaSeparatedText, UTType.folder, UTType.pdf]) { result in
                     switch result {
                     case .success(let data):
-                        print(data)
+                        // gain access
+                        let gotAccess = data.startAccessingSecurityScopedResource()
+                        if !gotAccess {print("access denied")}
+                        self.selectedFile = PDF(url: data)
                     case .failure(let error):
                         print("An error has occured \(error)")
                     }
                 }
                 Button("Import File") {
                     filePresented = true
+                    
                 }
                 Button("Transfer Content") {
                     print("transfer \(selectedDataType)")
+
                 }
                 Button("Retrieve Content") {
                     print("retrieve \(selectedDataType)")
                 }
-            DisplayerView()
+                if let selectedFile {
+//                    DisplayerView(selectedFile: selectedFile)
+                }
+                if let selectedImage {
+                    
+                }
+            
         }
         
     }
-
+    
+    private func loadTransferable(from imageSelection: PhotosPickerItem) -> Progress {
+        return imageSelection.loadTransferable(type: Image.self) { result in
+            switch result {
+            case .success(let image?):
+                self.selectedImage = image
+                break
+            case.success(nil):
+                break
+            case .failure(let error):
+                print("image could not be retrieved \(error)")
+            }
+        }
+    }
+    
     private func addItem() {
         withAnimation {
             let newItem = Item(context: viewContext)
@@ -87,13 +124,6 @@ struct ContentView: View {
         }
     }
 }
-
-private let itemFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .short
-    formatter.timeStyle = .medium
-    return formatter
-}()
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

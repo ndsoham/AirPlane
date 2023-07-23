@@ -14,6 +14,7 @@
 		0F5011C12A6C1AB0000C3F3A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F5011C02A6C1AB0000C3F3A /* Preview Assets.xcassets */; };
 		0F5011C32A6C1AB0000C3F3A /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5011C22A6C1AB0000C3F3A /* Persistence.swift */; };
 		0F5011C62A6C1AB0000C3F3A /* AirPlane.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0F5011C42A6C1AB0000C3F3A /* AirPlane.xcdatamodeld */; };
+		0FA08DD02A6D79A8003E327A /* PDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA08DCF2A6D79A8003E327A /* PDF.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		0F5011C02A6C1AB0000C3F3A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0F5011C22A6C1AB0000C3F3A /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		0F5011C52A6C1AB0000C3F3A /* AirPlane.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AirPlane.xcdatamodel; sourceTree = "<group>"; };
+		0FA08DCF2A6D79A8003E327A /* PDF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDF.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				0F3217612A6C7412003D9881 /* Info.plist */,
 				0F5011B92A6C1AAF000C3F3A /* AirPlaneApp.swift */,
 				0F5011BB2A6C1AAF000C3F3A /* ContentView.swift */,
+				0FA08DCF2A6D79A8003E327A /* PDF.swift */,
 				0F3217642A6C7E84003D9881 /* DisplayerView.swift */,
 				0F5011BD2A6C1AB0000C3F3A /* Assets.xcassets */,
 				0F5011C22A6C1AB0000C3F3A /* Persistence.swift */,
@@ -152,6 +155,7 @@
 				0F5011C32A6C1AB0000C3F3A /* Persistence.swift in Sources */,
 				0F5011C62A6C1AB0000C3F3A /* AirPlane.xcdatamodeld in Sources */,
 				0F5011BC2A6C1AAF000C3F3A /* ContentView.swift in Sources */,
+				0FA08DD02A6D79A8003E327A /* PDF.swift in Sources */,
 				0F5011BA2A6C1AAF000C3F3A /* AirPlaneApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

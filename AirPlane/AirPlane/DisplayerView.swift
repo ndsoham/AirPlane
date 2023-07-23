@@ -6,15 +6,20 @@
 //
 
 import SwiftUI
-
+import PhotosUI
 struct DisplayerView: View {
+    var selectedFile: Data?
     var body: some View {
-        Image(systemName: "person").frame(width: 300, height: 300).aspectRatio(contentMode: .fill)
+        if let selectedFile, let image = UIImage(data: selectedFile){
+            Image(uiImage: image)
+            .frame(width: 300, height: 300)
+        } else {
+            Text("image could not be created")
+            
+        }
+    
+        
+        
     }
-}
-
-struct DisplayerView_Previews: PreviewProvider {
-    static var previews: some View {
-        DisplayerView()
-    }
+ 
 }
