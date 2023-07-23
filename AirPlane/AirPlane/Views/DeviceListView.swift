@@ -12,20 +12,36 @@ struct DeviceListView: View {
     let columns = [
         GridItem(.adaptive(minimum: 80), spacing: 24) // Set the minimum width for each item
     ]
-    
+ 
     var body: some View {
+      
         ScrollView {
             LazyVGrid(columns: columns, spacing: 32) {
-                //                    ForEach(items, id: \.self) { item in
-                //                        Text(item)
-                //                            .padding()
-                //                            .background(Color.blue)
-                //                            .foregroundColor(.white)
-                //                            .cornerRadius(8)
-                //                    }
+//                NavigationLink {
+//                    FolderView(folderName: "This iPhone")
+//                } label: {
+//                    VStack {
+//                        ZStack {
+//                            Circle()
+//                                .frame(width: 100, height: 100)
+//                                .foregroundColor(.white)
+//                                .shadow(color: .gray.opacity(0.4), radius: 7)
+//                            
+//                            Image(systemName: "iphone")
+//                                .font(.system(size: 56))
+//                        }
+//                        .padding(.bottom, 4)
+//                        
+//                        Text("This iPhone")
+//                            .frame(height: 50, alignment: .top)
+//                        
+//                    }
+//                    .foregroundColor(.black)
+//                }
                 
                 NavigationLink {
-                    FolderView(folderName: "This iPhone")
+                    
+                    FolderView(folderName: "iPhone 14 Pro")
                 } label: {
                     VStack {
                         ZStack {
@@ -39,51 +55,7 @@ struct DeviceListView: View {
                         }
                         .padding(.bottom, 4)
                         
-                        Text("This iPhone")
-                            .frame(height: 50, alignment: .top)
-                        
-                    }
-                    .foregroundColor(.black)
-                }
-                
-                NavigationLink {
-                    FolderView(folderName: "Soham's iPhone")
-                } label: {
-                    VStack {
-                        ZStack {
-                            Circle()
-                                .frame(width: 100, height: 100)
-                                .foregroundColor(.white)
-                                .shadow(color: .gray.opacity(0.4), radius: 7)
-                            
-                            Image(systemName: "iphone")
-                                .font(.system(size: 56))
-                        }
-                        .padding(.bottom, 4)
-                        
-                        Text("Soham's iPhone")
-                            .frame(height: 50, alignment: .top)
-                        
-                    }
-                    .foregroundColor(.black)
-                }
-                
-                NavigationLink {
-                    FolderView(folderName: "Kevin's iPhone")
-                } label: {
-                    VStack {
-                        ZStack {
-                            Circle()
-                                .frame(width: 100, height: 100)
-                                .foregroundColor(.white)
-                                .shadow(color: .gray.opacity(0.4), radius: 7)
-                            
-                            Image(systemName: "iphone")
-                                .font(.system(size: 56))
-                        }
-                        .padding(.bottom, 4)
-                        
-                        Text("Kevin's iPhone")
+                        Text("iPhone 14 Pro")
                             .frame(height: 50, alignment: .top)
                         
                     }

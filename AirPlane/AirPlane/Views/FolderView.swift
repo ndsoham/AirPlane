@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
+import FirebaseStorage
 
 struct FolderView: View {
     @State private var activeSheet: ActiveSheet?
+    @State private var isPresented: Bool = false
     var folderName: String
     
     enum ActiveSheet: Identifiable {
@@ -20,12 +22,16 @@ struct FolderView: View {
         }
     }
     
+    
     let columns = [
         GridItem(.adaptive(minimum: 80), spacing: 24) // Set the minimum width for each item
     ]
+    var reference = Storage.storage().reference()
     
     var body: some View {
+   
         ScrollView {
+           
             LazyVGrid(columns: columns) {
                 
                 NavigationLink {
@@ -184,18 +190,44 @@ struct FolderView: View {
             }
             .padding(.horizontal, 30)
             .padding(.vertical, 30)
-            
             Spacer(minLength: 0)
+                
         }
         .navigationTitle(folderName)
         .navigationBarTitleDisplayMode(.inline)
+        .fileImporter(isPresented: $isPresented, allowedContentTypes: [.image, .pdf, .video]) { result in
+             switch result {
+             case .success(let result):
+                  do {
+                       let data = try Data(contentsOf: result)
+                       let photoRef = reference.child("\(UIDevice.current.name)/photo")
+                       photoRef.putData(data) { metadata, error in
+                            if let error {
+                                 print("An error occured pushing the photo to the serve: \(error)")
+                            } else if let metadata {
+                                 print("The photo went to the server \(metadata)")
+                            }
+                       }
+                       try FileManager.default.removeItem(at: result)
+                       print("process was completed successfully")
+                  } catch {
+                       print("An error has occured \(error.localizedDescription)")
+                  }
+                  break
+             case .failure(let error):
+                  print("a different error has occured \(error)")
+             }
+             
+        }
         .toolbar {
             Menu {
                 Button(action: {
-                    activeSheet = .transferView
+//                    activeSheet = .transferView
+                    isPresented = true
                 }) {
                     Text("Transfer")
                 }
+                 
             } label: {
                 Image(systemName: "ellipsis.circle")
                     .font(.system(size: 20))

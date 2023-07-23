@@ -36,49 +36,49 @@ struct TransferView: View {
                                 }
                                 .padding(.bottom, 4)
                                 
-                                Text("Soham's iPhone 11")
+                                Text("iPhone 14 Pro")
                                     .frame(height: 50, alignment: .top)
                             }
                             .foregroundColor(.black)
                         }
                         
-                        Button(action: {}) {
-                            VStack {
-                                ZStack {
-                                    Circle()
-                                        .frame(width: 100, height: 100)
-                                        .foregroundColor(.white)
-                                        .shadow(color: .gray.opacity(0.4), radius: 7)
-                                    
-                                    Image(systemName: "iphone.gen3")
-                                        .font(.system(size: 56))
-                                }
-                                .padding(.bottom, 4)
-                                
-                                Text("Kevin's iPhone")
-                                    .frame(height: 50, alignment: .top)
-                            }
-                            .foregroundColor(.black)
-                        }
-                        
-                        Button(action: {}) {
-                            VStack {
-                                ZStack {
-                                    Circle()
-                                        .frame(width: 100, height: 100)
-                                        .foregroundColor(.white)
-                                        .shadow(color: .gray.opacity(0.4), radius: 7)
-                                    
-                                    Image(systemName: "macbook")
-                                        .font(.system(size: 56))
-                                }
-                                .padding(.bottom, 4)
-                                
-                                Text("Kevin's Macbook Pro")
-                                    .frame(height: 50, alignment: .top)
-                            }
-                            .foregroundColor(.black)
-                        }
+//                        Button(action: {}) {
+//                            VStack {
+//                                ZStack {
+//                                    Circle()
+//                                        .frame(width: 100, height: 100)
+//                                        .foregroundColor(.white)
+//                                        .shadow(color: .gray.opacity(0.4), radius: 7)
+//
+//                                    Image(systemName: "iphone.gen3")
+//                                        .font(.system(size: 56))
+//                                }
+//                                .padding(.bottom, 4)
+//
+//                                Text("Kevin's iPhone")
+//                                    .frame(height: 50, alignment: .top)
+//                            }
+//                            .foregroundColor(.black)
+//                        }
+//
+//                        Button(action: {}) {
+//                            VStack {
+//                                ZStack {
+//                                    Circle()
+//                                        .frame(width: 100, height: 100)
+//                                        .foregroundColor(.white)
+//                                        .shadow(color: .gray.opacity(0.4), radius: 7)
+//
+//                                    Image(systemName: "macbook")
+//                                        .font(.system(size: 56))
+//                                }
+//                                .padding(.bottom, 4)
+//
+//                                Text("Kevin's Macbook Pro")
+//                                    .frame(height: 50, alignment: .top)
+//                            }
+//                            .foregroundColor(.black)
+//                        }
                         
                         
                     }
