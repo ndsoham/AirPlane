@@ -14,6 +14,10 @@
 		0F5011C12A6C1AB0000C3F3A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F5011C02A6C1AB0000C3F3A /* Preview Assets.xcassets */; };
 		0F5011C32A6C1AB0000C3F3A /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5011C22A6C1AB0000C3F3A /* Persistence.swift */; };
 		0F5011C62A6C1AB0000C3F3A /* AirPlane.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0F5011C42A6C1AB0000C3F3A /* AirPlane.xcdatamodeld */; };
+		C5F6EE582A6CAB7000C1E37C /* DeviceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F6EE572A6CAB7000C1E37C /* DeviceListView.swift */; };
+		C5F6EE5A2A6CB73300C1E37C /* FolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F6EE592A6CB73300C1E37C /* FolderView.swift */; };
+		C5F6EE5C2A6D6E3000C1E37C /* TransferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F6EE5B2A6D6E3000C1E37C /* TransferView.swift */; };
+		C5F6EE642A6D783A00C1E37C /* PDFKitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F6EE632A6D783A00C1E37C /* PDFKitView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,10 @@
 		0F5011C02A6C1AB0000C3F3A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0F5011C22A6C1AB0000C3F3A /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		0F5011C52A6C1AB0000C3F3A /* AirPlane.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AirPlane.xcdatamodel; sourceTree = "<group>"; };
+		C5F6EE572A6CAB7000C1E37C /* DeviceListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceListView.swift; sourceTree = "<group>"; };
+		C5F6EE592A6CB73300C1E37C /* FolderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderView.swift; sourceTree = "<group>"; };
+		C5F6EE5B2A6D6E3000C1E37C /* TransferView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferView.swift; sourceTree = "<group>"; };
+		C5F6EE632A6D783A00C1E37C /* PDFKitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFKitView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,8 +68,7 @@
 			children = (
 				0F3217612A6C7412003D9881 /* Info.plist */,
 				0F5011B92A6C1AAF000C3F3A /* AirPlaneApp.swift */,
-				0F5011BB2A6C1AAF000C3F3A /* ContentView.swift */,
-				0F3217642A6C7E84003D9881 /* DisplayerView.swift */,
+				C5F6EE5D2A6D725300C1E37C /* Views */,
 				0F5011BD2A6C1AB0000C3F3A /* Assets.xcassets */,
 				0F5011C22A6C1AB0000C3F3A /* Persistence.swift */,
 				0F5011C42A6C1AB0000C3F3A /* AirPlane.xcdatamodeld */,
@@ -76,6 +83,19 @@
 				0F5011C02A6C1AB0000C3F3A /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		C5F6EE5D2A6D725300C1E37C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0F5011BB2A6C1AAF000C3F3A /* ContentView.swift */,
+				0F3217642A6C7E84003D9881 /* DisplayerView.swift */,
+				C5F6EE572A6CAB7000C1E37C /* DeviceListView.swift */,
+				C5F6EE592A6CB73300C1E37C /* FolderView.swift */,
+				C5F6EE5B2A6D6E3000C1E37C /* TransferView.swift */,
+				C5F6EE632A6D783A00C1E37C /* PDFKitView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,10 +168,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5F6EE5A2A6CB73300C1E37C /* FolderView.swift in Sources */,
+				C5F6EE582A6CAB7000C1E37C /* DeviceListView.swift in Sources */,
 				0F3217652A6C7E84003D9881 /* DisplayerView.swift in Sources */,
 				0F5011C32A6C1AB0000C3F3A /* Persistence.swift in Sources */,
 				0F5011C62A6C1AB0000C3F3A /* AirPlane.xcdatamodeld in Sources */,
+				C5F6EE5C2A6D6E3000C1E37C /* TransferView.swift in Sources */,
 				0F5011BC2A6C1AAF000C3F3A /* ContentView.swift in Sources */,
+				C5F6EE642A6D783A00C1E37C /* PDFKitView.swift in Sources */,
 				0F5011BA2A6C1AAF000C3F3A /* AirPlaneApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
