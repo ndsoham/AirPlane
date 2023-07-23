@@ -17,7 +17,7 @@
 		C5F6EE582A6CAB7000C1E37C /* DeviceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F6EE572A6CAB7000C1E37C /* DeviceListView.swift */; };
 		C5F6EE5A2A6CB73300C1E37C /* FolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F6EE592A6CB73300C1E37C /* FolderView.swift */; };
 		C5F6EE5C2A6D6E3000C1E37C /* TransferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F6EE5B2A6D6E3000C1E37C /* TransferView.swift */; };
-		C5F6EE642A6D783A00C1E37C /* PDFKitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F6EE632A6D783A00C1E37C /* PDFKitView.swift */; };
+		C5F6EE842A6D7F3000C1E37C /* FileInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F6EE832A6D7F3000C1E37C /* FileInformationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +33,7 @@
 		C5F6EE572A6CAB7000C1E37C /* DeviceListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceListView.swift; sourceTree = "<group>"; };
 		C5F6EE592A6CB73300C1E37C /* FolderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderView.swift; sourceTree = "<group>"; };
 		C5F6EE5B2A6D6E3000C1E37C /* TransferView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferView.swift; sourceTree = "<group>"; };
-		C5F6EE632A6D783A00C1E37C /* PDFKitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFKitView.swift; sourceTree = "<group>"; };
+		C5F6EE832A6D7F3000C1E37C /* FileInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileInformationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,7 +93,7 @@
 				C5F6EE572A6CAB7000C1E37C /* DeviceListView.swift */,
 				C5F6EE592A6CB73300C1E37C /* FolderView.swift */,
 				C5F6EE5B2A6D6E3000C1E37C /* TransferView.swift */,
-				C5F6EE632A6D783A00C1E37C /* PDFKitView.swift */,
+				C5F6EE832A6D7F3000C1E37C /* FileInformationView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -172,10 +172,10 @@
 				C5F6EE582A6CAB7000C1E37C /* DeviceListView.swift in Sources */,
 				0F3217652A6C7E84003D9881 /* DisplayerView.swift in Sources */,
 				0F5011C32A6C1AB0000C3F3A /* Persistence.swift in Sources */,
+				C5F6EE842A6D7F3000C1E37C /* FileInformationView.swift in Sources */,
 				0F5011C62A6C1AB0000C3F3A /* AirPlane.xcdatamodeld in Sources */,
 				C5F6EE5C2A6D6E3000C1E37C /* TransferView.swift in Sources */,
 				0F5011BC2A6C1AAF000C3F3A /* ContentView.swift in Sources */,
-				C5F6EE642A6D783A00C1E37C /* PDFKitView.swift in Sources */,
 				0F5011BA2A6C1AAF000C3F3A /* AirPlaneApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
