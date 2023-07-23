@@ -71,7 +71,6 @@
 		0F5011B82A6C1AAF000C3F3A /* AirPlane */ = {
 			isa = PBXGroup;
 			children = (
-				0FF4E2302A6DAF880051C551 /* Model */,
 				0F3217612A6C7412003D9881 /* Info.plist */,
 				0F7E740D2A6DAA6C003AEFC9 /* GoogleService-Info.plist */,
 				0F5011B92A6C1AAF000C3F3A /* AirPlaneApp.swift */,
@@ -89,13 +88,6 @@
 				0F5011C02A6C1AB0000C3F3A /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		0FF4E2302A6DAF880051C551 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		9D33173A2751E0A3A680678E /* Frameworks */ = {

@@ -9,7 +9,7 @@ import SwiftUI
 import FirebaseStorage
 import Firebase
 import UIKit
-
+import FirebaseStorage
 class AppDelegate: UIResponder, UIApplicationDelegate {
     // Implement any lifecycle methods you want to handle
     
@@ -22,8 +22,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 @main
 struct AirPlaneApp: App {
+    var reference: StorageReference
+   
     init() {
         FirebaseApp.configure()
+        reference = Storage.storage().reference()
+        gatherFileData()
     }
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
 
@@ -31,6 +35,25 @@ struct AirPlaneApp: App {
         WindowGroup {
             ContentView()
                 
+        }
+    }
+    func gatherFileData() {
+        guard let fileURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("photo.jpg") else {
+            print("Error creating file URL.")
+            return
+        }
+        reference.child("\(UIDevice.current.name)/photo").getData(maxSize: 1 * 1024 * 1024) { data, error in
+            if let error {
+                print("an error has occured: \(error)")
+            } else if let data {
+                // Data for "images/island.jpg" is returned
+                do {
+                    try data.write(to: fileURL)
+                    print("File saved to document directory: \(fileURL)")
+                } catch {
+                    print("Error saving file: \(error)")
+                }
+            }
         }
     }
 }

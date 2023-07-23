@@ -12,7 +12,16 @@ struct DeviceListView: View {
     let columns = [
         GridItem(.adaptive(minimum: 80), spacing: 24) // Set the minimum width for each item
     ]
- 
+    let transferDevice: String = {
+        switch UIDevice.current.name{
+        case "iPhone 14 Pro":
+            return "iPhone 8"
+        case "iPhone 8":
+            return "iPhone 14 Pro"
+        default:
+            return "Some iPhone"
+        }
+    }()
     var body: some View {
       
         ScrollView {
@@ -41,7 +50,7 @@ struct DeviceListView: View {
                 
                 NavigationLink {
                     
-                    FolderView(folderName: "iPhone 14 Pro")
+                    FolderView(folderName: transferDevice)
                 } label: {
                     VStack {
                         ZStack {
@@ -55,7 +64,7 @@ struct DeviceListView: View {
                         }
                         .padding(.bottom, 4)
                         
-                        Text("iPhone 14 Pro")
+                        Text(transferDevice)
                             .frame(height: 50, alignment: .top)
                         
                     }

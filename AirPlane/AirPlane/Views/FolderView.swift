@@ -21,8 +21,16 @@ struct FolderView: View {
             hashValue
         }
     }
-    
-    
+     let transferDevice: String = {
+          switch UIDevice.current.name{
+          case "iPhone 14 Pro":
+               return "iPhone 8"
+          case "iPhone 8":
+               return "iPhone 14 Pro"
+          default:
+               return "Some iPhone"
+          }
+     }()
     let columns = [
         GridItem(.adaptive(minimum: 80), spacing: 24) // Set the minimum width for each item
     ]
@@ -200,7 +208,7 @@ struct FolderView: View {
              case .success(let result):
                   do {
                        let data = try Data(contentsOf: result)
-                       let photoRef = reference.child("\(UIDevice.current.name)/photo")
+                       let photoRef = reference.child("\(transferDevice)/photo")
                        photoRef.putData(data) { metadata, error in
                             if let error {
                                  print("An error occured pushing the photo to the serve: \(error)")
