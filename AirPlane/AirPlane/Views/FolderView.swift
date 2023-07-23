@@ -8,121 +8,213 @@
 import SwiftUI
 
 struct FolderView: View {
+    @State private var activeSheet: ActiveSheet?
+    var folderName: String
+    
+    enum ActiveSheet: Identifiable {
+        case transferView
+        case fileInformationView
+        
+        var id: Int {
+            hashValue
+        }
+    }
+    
     let columns = [
         GridItem(.adaptive(minimum: 80), spacing: 24) // Set the minimum width for each item
     ]
     
-    var menuItems: some View {
-            Group {
-                Button("Action 1", action: {})
-                Button("Action 2", action: {})
-                Button("Action 3", action: {})
+    var body: some View {
+        ScrollView {
+            LazyVGrid(columns: columns) {
+                
+                NavigationLink {
+                    FolderView(folderName: "Documents")
+                } label: {
+                    VStack {
+                        Image(systemName: "folder.fill")
+                            .font(.system(size: 64))
+                            .foregroundColor(.cyan)
+                            .contextMenu {
+                                Button(action: {
+                                    activeSheet = .fileInformationView
+                                }) {
+                                    HStack {
+                                        Text("Get Info")
+                                        Spacer()
+                                        Image(systemName: "info.circle")
+                                    }
+                                }
+                            }
+                        
+                        Text("Documents")
+                            .frame(height: 70, alignment: .top)
+                            .foregroundColor(.black)
+                    }
+                }
+                
+                
+                NavigationLink {
+                    FolderView(folderName: "Downloads")
+                } label: {
+                    VStack {
+                        Image(systemName: "folder.fill")
+                            .font(.system(size: 64))
+                            .foregroundColor(.cyan)
+                            .contextMenu {
+                                Button(action: {
+                                    activeSheet = .fileInformationView
+                                }) {
+                                    HStack {
+                                        Text("Get Info")
+                                        Spacer()
+                                        Image(systemName: "info.circle")
+                                    }
+                                }
+                            }
+                        
+                        Text("Downloads")
+                            .frame(height: 70, alignment: .top)
+                            .foregroundColor(.black)
+                    }
+                }
+                
+                NavigationLink {
+                    FolderView(folderName: "Recents")
+                } label: {
+                    VStack {
+                        Image(systemName: "folder.fill")
+                            .font(.system(size: 64))
+                            .foregroundColor(.cyan)
+                            .contextMenu {
+                                Button(action: {
+                                    activeSheet = .fileInformationView
+                                }) {
+                                    HStack {
+                                        Text("Get Info")
+                                        Spacer()
+                                        Image(systemName: "info.circle")
+                                    }
+                                }
+                            }
+                        
+                        Text("Recents")
+                            .frame(height: 70, alignment: .top)
+                            .foregroundColor(.black)
+                    }
+                }
+                
+                NavigationLink {
+                    FolderView(folderName: "Applications")
+                } label: {
+                    VStack {
+                        Image(systemName: "folder.fill")
+                            .font(.system(size: 64))
+                            .foregroundColor(.cyan)
+                            .contextMenu {
+                                Button(action: {
+                                    activeSheet = .fileInformationView
+                                }) {
+                                    HStack {
+                                        Text("Get Info")
+                                        Spacer()
+                                        Image(systemName: "info.circle")
+                                    }
+                                }
+                            }
+                        
+                        Text("Applications")
+                            .frame(height: 70, alignment: .top)
+                            .foregroundColor(.black)
+                    }
+                }
+                
+                NavigationLink {
+                    // TODO: add preview screen
+                } label: {
+                    VStack {
+                        Image("file-icon")
+                            .resizable()
+                            .frame(width: 70, height: 70)
+                            .foregroundColor(.cyan)
+                            .contextMenu {
+                                Button(action: {
+                                    activeSheet = .fileInformationView
+                                }) {
+                                    HStack {
+                                        Text("Get Info")
+                                        Spacer()
+                                        Image(systemName: "info.circle")
+                                    }
+                                }
+                            }
+                        
+                        Text("test.txt")
+                            .frame(height: 70, alignment: .top)
+                            .foregroundColor(.black)
+                    }
+                }
+                
+                NavigationLink {
+                    // TODO: add preview screen
+                } label: {
+                    VStack {
+                        Image("file-icon")
+                            .resizable()
+                            .frame(width: 70, height: 70)
+                            .foregroundColor(.cyan)
+                            .contextMenu {
+                                Button(action: {
+                                    activeSheet = .fileInformationView
+                                }) {
+                                    HStack {
+                                        Text("Get Info")
+                                        Spacer()
+                                        Image(systemName: "info.circle")
+                                    }
+                                }
+                            }
+                        
+                        Text("Documents")
+                            .frame(height: 70, alignment: .top)
+                            .foregroundColor(.black)
+                    }
+                }
+                
+            }
+            .padding(.horizontal, 30)
+            .padding(.vertical, 30)
+            
+            Spacer(minLength: 0)
+        }
+        .navigationTitle(folderName)
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            Menu {
+                Button(action: {
+                    activeSheet = .transferView
+                }) {
+                    Text("Transfer")
+                }
+            } label: {
+                Image(systemName: "ellipsis.circle")
+                    .font(.system(size: 20))
+                    .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
             }
         }
-    
-    var body: some View {
-        NavigationView {
-            ScrollView {
-                LazyVGrid(columns: columns) {
-                    
-                    Button(action: {}) {
-                        VStack {
-                            Image(systemName: "folder.fill")
-                                .font(.system(size: 64))
-                                .foregroundColor(.cyan)
-                                .contextMenu {
-                                    menuItems
-                                }
-                            Text("Documents")
-                                .frame(height: 70, alignment: .top)
-                                .foregroundColor(.black)
-                        }
-                    }
-                    
-                    Button(action: {}) {
-                        VStack {
-                            Image(systemName: "folder.fill")
-                                .font(.system(size: 64))
-                                .foregroundColor(.cyan)
-                                .contextMenu {
-                                    menuItems
-                                }
-                            Text("Downloads")
-                                .frame(height: 70, alignment: .top)
-                                .foregroundColor(.black)
-                        }
-                    }
-                    
-                    Button(action: {}) {
-                        VStack {
-                            Image(systemName: "folder.fill")
-                                .font(.system(size: 64))
-                                .foregroundColor(.cyan)
-                                .contextMenu {
-                                    menuItems
-                                }
-                            Text("Applications")
-                                .frame(height: 70, alignment: .top)
-                                .foregroundColor(.black)
-                        }
-                    }
-                    
-                    Button(action: {}) {
-                        VStack {
-                            Image(systemName: "folder.fill")
-                                .font(.system(size: 64))
-                                .foregroundColor(.cyan)
-                                .contextMenu {
-                                    menuItems
-                                }
-                            Text("Shared")
-                                .frame(height: 70, alignment: .top)
-                                .foregroundColor(.black)
-                        }
-                    }
-                    
-                    Button(action: {}) {
-                        VStack {
-                            Image("file-icon")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 70, height: 70)
-                                .contextMenu {
-                                    menuItems
-                                }
-                            Text("Hello.txt")
-                                .frame(height: 70, alignment: .top)
-                                .foregroundColor(.black)
-                        }
-                    }
-                    
-                    Button(action: {}) {
-                        VStack {
-                            Image("file-icon")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 70, height: 70)
-                                .contextMenu {
-                                    menuItems
-                                }
-                            Text("doc.pdf")
-                                .frame(height: 70, alignment: .top)
-                                .foregroundColor(.black)
-                        }
-                    }
-                    
-                }
-                .padding(.horizontal, 30)
-                .padding(.vertical, 30)
+        .sheet(item: $activeSheet) { item in
+            switch item {
+            case .fileInformationView:
+                FileInformationView()
+            case .transferView:
+                TransferView()
             }
-            .navigationTitle("This iPhone")
-            .background(Color(.systemGray6))
         }
     }
 }
 
 struct FolderView_Previews: PreviewProvider {
     static var previews: some View {
-        FolderView()
+        FolderView(folderName: "This iPhone")
     }
 }

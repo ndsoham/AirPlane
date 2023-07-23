@@ -58,8 +58,12 @@ struct FileInformationView: View {
                     Text(Date.now, style: .date)
                 }
             }
+            
+            Spacer()
         }
-        .padding()
+        .padding(.vertical, 30)
+        .padding(.horizontal, 20)
+        .foregroundColor(.black)
     }
 }
 

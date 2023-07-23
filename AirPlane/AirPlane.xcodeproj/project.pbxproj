@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0F3217652A6C7E84003D9881 /* DisplayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3217642A6C7E84003D9881 /* DisplayerView.swift */; };
 		0F5011BA2A6C1AAF000C3F3A /* AirPlaneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5011B92A6C1AAF000C3F3A /* AirPlaneApp.swift */; };
 		0F5011BC2A6C1AAF000C3F3A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5011BB2A6C1AAF000C3F3A /* ContentView.swift */; };
 		0F5011BE2A6C1AB0000C3F3A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F5011BD2A6C1AB0000C3F3A /* Assets.xcassets */; };
@@ -22,7 +21,6 @@
 
 /* Begin PBXFileReference section */
 		0F3217612A6C7412003D9881 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		0F3217642A6C7E84003D9881 /* DisplayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayerView.swift; sourceTree = "<group>"; };
 		0F5011B62A6C1AAF000C3F3A /* AirPlane.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirPlane.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F5011B92A6C1AAF000C3F3A /* AirPlaneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirPlaneApp.swift; sourceTree = "<group>"; };
 		0F5011BB2A6C1AAF000C3F3A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -89,7 +87,6 @@
 			isa = PBXGroup;
 			children = (
 				0F5011BB2A6C1AAF000C3F3A /* ContentView.swift */,
-				0F3217642A6C7E84003D9881 /* DisplayerView.swift */,
 				C5F6EE572A6CAB7000C1E37C /* DeviceListView.swift */,
 				C5F6EE592A6CB73300C1E37C /* FolderView.swift */,
 				C5F6EE5B2A6D6E3000C1E37C /* TransferView.swift */,
@@ -170,7 +167,6 @@
 			files = (
 				C5F6EE5A2A6CB73300C1E37C /* FolderView.swift in Sources */,
 				C5F6EE582A6CAB7000C1E37C /* DeviceListView.swift in Sources */,
-				0F3217652A6C7E84003D9881 /* DisplayerView.swift in Sources */,
 				0F5011C32A6C1AB0000C3F3A /* Persistence.swift in Sources */,
 				C5F6EE842A6D7F3000C1E37C /* FileInformationView.swift in Sources */,
 				0F5011C62A6C1AB0000C3F3A /* AirPlane.xcdatamodeld in Sources */,

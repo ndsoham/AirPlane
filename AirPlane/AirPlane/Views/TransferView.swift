@@ -19,6 +19,7 @@ struct TransferView: View {
                     Text("Select a Device to Transfer Files to")
                         .font(.title)
                         .bold()
+                        .padding(.vertical)
                     
                     LazyVGrid(columns: columns, spacing: 32) {
                         
